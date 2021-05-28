@@ -14,7 +14,7 @@ jobs:
       - name: Fetching Local Repository
         uses: actions/checkout@v2
       - name: File Sync
-        uses: kbrashears5/github-action-file-sync@2.0.10
+        uses: emersonknapp/github-action-file-sync@master
         with:
           REPOSITORIES: |
             ros-tooling/test-repo-target@repo-config-sync
