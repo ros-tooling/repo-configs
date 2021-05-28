@@ -19,8 +19,9 @@ jobs:
           REPOSITORIES: |
             ros-tooling/test-repo-target@repo-config-sync
           FILES: |
+            .github/workflows/autoapprove.yml=.github/workflows/autoapprove.yml
+            .github/workflows/automerge.yml=.github/workflows/automerge.yml
             sync/.github/dependabot.yml=.github/dependabot.yml
             sync/.github/CODEOWNERS=.github/CODEOWNERS
-            sync/TEST=TEST
           PULL_REQUEST_BRANCH_NAME: main
           TOKEN: ${{ secrets.REPO_CONFIG_SYNC_TOKEN }}
