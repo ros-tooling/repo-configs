@@ -17,9 +17,10 @@ jobs:
         uses: kbrashears5/github-action-file-sync@2.0.10
         with:
           REPOSITORIES: |
-            ros-tooling/test-repo-target
+            ros-tooling/test-repo-target@repo-config-sync
           FILES: |
             sync/.github/dependabot.yml=.github/dependabot.yml
             sync/.github/CODEOWNERS=.github/CODEOWNERS
-          PULL_REQUEST_BRANCH_NAME: repo-config-sync
+            sync/TEST=TEST
+          PULL_REQUEST_BRANCH_NAME: main
           TOKEN: ${{ secrets.REPO_CONFIG_SYNC_TOKEN }}
