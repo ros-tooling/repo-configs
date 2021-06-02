@@ -7,6 +7,24 @@ Some common sources may come from https://github.com/ros-tooling/.github, but th
 
 ## Features
 
-This section lists all implemented configuration management features.
+### File sync
 
-### File Sync
+Uses a GitHub Action to apply files as a PR to managed repositories.
+Some files can be applied via the https://github.com/ros-tooling/.github repository, but this only allows for a very specific set of files, limiting its usefulness.
+
+See `.github/workflows/file-sync.yml` for details on managed repositories and synchronized files.
+
+The managed files include workflows to auto-approve and auto-merge these file-sync PRs, if all required checks pass.
+
+### Settings sync
+
+TODO: Synchronize some repository configuration to managed repositories - useful for getting common configuration like "squash-merge only" and various Team access permissions.
+
+## Contributing
+
+Please add the following comment at the top of files to be synchronized - this is not done automatically.
+This is similar to the `marker` concept of Ansible's [`blockinfile`](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/blockinfile_module.html)
+
+```
+# NOTE: this file is managed by ros-tooling/repo-configs, don't edit it manually.
+```
