@@ -25,6 +25,7 @@ jobs:
           MERGE_COMMIT_MESSAGE: "pull-request-title-and-description"
           MERGE_RETRIES: "0"
           UPDATE_METHOD: "rebase" # Rebase PR on base branch
+  # Automatically merge approved and green file-sync PRs from ros-tooling-bot
   auto-merge-file-sync:
     runs-on: ubuntu-latest
     if: github.actor == 'ros-tooling-bot'
