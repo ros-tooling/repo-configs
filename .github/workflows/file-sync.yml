@@ -24,4 +24,5 @@ jobs:
             sync/.github/dependabot.yml=.github/dependabot.yml
             sync/.github/CODEOWNERS=.github/CODEOWNERS
           PULL_REQUEST_BRANCH_NAME: main
+          PULL_REQUEST_LABEL: file-sync
           TOKEN: ${{ secrets.REPO_CONFIG_SYNC_TOKEN }}
