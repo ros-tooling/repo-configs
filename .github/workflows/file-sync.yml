@@ -17,12 +17,12 @@ jobs:
         uses: emersonknapp/github-action-file-sync@master
         with:
           REPOSITORIES: |
-            ros-tooling/test-repo-target@repo-config-sync
+            ros-tooling/action-ros-lint@repo-config-sync
           FILES: |
             .github/workflows/autoapprove.yml=.github/workflows/autoapprove.yml
             .github/workflows/automerge.yml=.github/workflows/automerge.yml
             sync/.github/dependabot.yml=.github/dependabot.yml
             sync/.github/CODEOWNERS=.github/CODEOWNERS
-          PULL_REQUEST_BRANCH_NAME: main
+          PULL_REQUEST_BRANCH_NAME: master
           PULL_REQUEST_LABEL: file-sync
           TOKEN: ${{ secrets.REPO_CONFIG_SYNC_TOKEN }}
