@@ -10,6 +10,17 @@ on:
 jobs:
   file_sync:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        repo:
+          - ros-tooling/action-ros-lint
+          - ros-tooling/keyboard_handler
+        include:
+          - repo: ros-tooling/action-ros-lint
+            default_branch: master
+          - repo: ros-tooling/keyboard_handler
+            default_branch: main
     steps:
       - name: Fetching Local Repository
         uses: actions/checkout@v2
@@ -17,14 +28,12 @@ jobs:
         uses: emersonknapp/github-action-file-sync@master
         with:
           # NOTE: you must provide the PR origin branch name here, otherwise it will try to push to the default branch
-          REPOSITORIES: |
-            ros-tooling/action-ros-lint@repo-config-sync
-            ros-tooling/keyboard_handler@repo-config-sync
+          REPOSITORIES: ${{ matrix.repo }}@repo-config-sync
           FILES: |
             .github/workflows/autoapprove.yml=.github/workflows/autoapprove.yml
             .github/workflows/automerge.yml=.github/workflows/automerge.yml
             sync/.github/dependabot.yml=.github/dependabot.yml
             sync/.github/CODEOWNERS=.github/CODEOWNERS
-          PULL_REQUEST_BRANCH_NAME: master
+          PULL_REQUEST_BRANCH_NAME: ${{ matrix.default_branch }}
           PULL_REQUEST_LABEL: file-sync
           TOKEN: ${{ secrets.REPO_CONFIG_SYNC_TOKEN }}
