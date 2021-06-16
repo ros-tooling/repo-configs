@@ -16,8 +16,10 @@ jobs:
       - name: File Sync
         uses: emersonknapp/github-action-file-sync@master
         with:
+          # NOTE: you must provide the PR origin branch name here, otherwise it will try to push to the default branch
           REPOSITORIES: |
             ros-tooling/action-ros-lint@repo-config-sync
+            ros-tooling/keyboard_handler@repo-config-sync
           FILES: |
             .github/workflows/autoapprove.yml=.github/workflows/autoapprove.yml
             .github/workflows/automerge.yml=.github/workflows/automerge.yml
